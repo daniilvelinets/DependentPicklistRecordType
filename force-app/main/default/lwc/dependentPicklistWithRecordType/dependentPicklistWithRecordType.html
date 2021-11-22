@@ -1,0 +1,10 @@
+<!--
+ - Created by Daniil.Velinets on 19.11.2021.
+ -->
+ <template>
+    <lightning-record-edit-form object-api-name={SobjectName} record-type-id={RecordTypeId} >
+        <lightning-input-field field-name={FieldName1} value={FieldValue1} required={isRequired} onchange={handleFieldChange} ></lightning-input-field>
+        <lightning-input-field field-name={FieldName2} value={FieldValue2} onchange={handleFieldChange} ></lightning-input-field>
+        <lightning-input-field field-name={FieldName3} value={FieldValue3} onchange={handleFieldChange} ></lightning-input-field>
+    </lightning-record-edit-form>
+</template>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <description>Dependent Picklist Values filtered by RecordType</description>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage" >
+            <property name="SobjectName" type="String" label="Object Name" required="true" />
+            <property name="RecordTypeId" type="String" label="RecordTypeId" required="true" />
+            <property name="FieldName1" type="String" label="1st level picklist field API Name" required="true" />
+            <property name="isRequired" type="Boolean" label="Required input" default="false" />
+            <property name="FieldName2" type="String" label="2nd level picklist field API Name" required="true" />
+            <property name="FieldName3" type="String" label="3d level picklist field API Name" required="true" />
+        </targetConfig>
+        <targetConfig targets="lightning__FlowScreen" >
+            <property name="SobjectName" type="String" label="Object API Name" role="inputOnly" />
+            <property name="RecordTypeId" type="String" label="Record Type" role="inputOnly" description="RecordType Id. Fetch from record {!sObj_Account.RecordTypeId} or from Get {!Get_RecordType.Id}. Avoid putting ID here" />
+            <property name="FieldName1" type="String" label="1st level picklist field API Name" role="inputOnly" />
+            <property name="isRequired" type="Boolean" label="Required input" role="inputOnly" default="false" />
+            <property name="errorMessageTxt" type="String" label="Required Error message" description="Error message shown to customer when input required, but not populated" default="Please select a picklist value"/>
+            <property name="FieldValue1" type="String" label="1st Selected value by user" description="The API value of the selected Picklist value" />
+            <property name="FieldName2" type="String" label="2nd level picklist field API Name" role="inputOnly" />
+            <property name="FieldValue2" type="String" label="2nd Selected value by user" description="The API value of the selected Picklist value" />
+            <property name="FieldName3" type="String" label="3d level picklist field API Name" role="inputOnly" />
+            <property name="FieldValue3" type="String" label="3d Selected value by user" description="The API value of the selected Picklist value" />
+        </targetConfig>
+    </targetConfigs>
+    <masterLabel>Dependent Picklist with RecordTypes</masterLabel>
+</LightningComponentBundle>
